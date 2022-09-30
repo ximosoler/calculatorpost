@@ -44,10 +44,28 @@ public class CalculatorController {
         return new ResponseEntity<>(oCalc, HttpStatus.OK);
 
     }
- */ 
-    @PostMapping
+ */
+    @PostMapping("/add")
     public ResponseEntity<Calc>calculadora(@RequestBody Calc oCalc){
         oCalc.setResult(oCalc.getOp1() + oCalc.getOp2());
+        return new ResponseEntity<Calc>(oCalc, HttpStatus.OK);
+    }
+
+    @PostMapping("/minus")
+    public ResponseEntity<Calc>calculadoraresta(@RequestBody Calc oCalc){
+        oCalc.setResult(oCalc.getOp1() - oCalc.getOp2());
+        return new ResponseEntity<Calc>(oCalc, HttpStatus.OK);
+    }
+
+    @PostMapping("/mult")
+    public ResponseEntity<Calc>calculadoramult(@RequestBody Calc oCalc){
+        oCalc.setResult(oCalc.getOp1() * oCalc.getOp2());
+        return new ResponseEntity<Calc>(oCalc, HttpStatus.OK);
+    }
+
+    @PostMapping("/div")
+    public ResponseEntity<Calc>calculadoradiv(@RequestBody Calc oCalc){
+        oCalc.setResult(oCalc.getOp1() / oCalc.getOp2());
         return new ResponseEntity<Calc>(oCalc, HttpStatus.OK);
     }
 }
